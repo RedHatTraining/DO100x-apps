@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: name-generator
+  labels:
+    app: name-generator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: name-generator
+  template:
+    metadata:
+      labels:
+        app: name-generator
+    spec:
+      containers:
+      - name: name-generator
+        image: quay.io/redhattraining/do100-name-generator:1.0
+        ports:
+        - containerPort: 80
