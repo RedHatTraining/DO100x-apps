@@ -10,7 +10,7 @@ app.get('/random-email', async (req, res) => {
   res.send(JSON.stringify(generatedEmail));
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`)
 });
