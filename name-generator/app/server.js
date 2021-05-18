@@ -9,7 +9,7 @@ app.get('/random-name', (req, res) => {
   res.send(JSON.stringify(generatedName));
 });
 
-const PORT = 80;
+const PORT = process.env.PORT;
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`)
 });

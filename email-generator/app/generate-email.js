@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const NAME_GENERATOR_URL = 'http://name-generator';
-const DEFAULT_NAME = 'Susan';
+const NAME_GENERATOR_URL = process.env.NAME_GENERATOR_URL || 'http://name-generator';
+const DEFAULT_NAME = process.env.DEFAULT_NAME || 'Susan';
 
 const getNameFromExternalService = () => {
     return axios.get(`${NAME_GENERATOR_URL}/random-name`, {timeout: 200})
