@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-generator
+  labels:
+    app: email-generator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: email-generator
+  template:
+    metadata:
+      labels:
+        app: email-generator
+    spec:
+      containers:
+      - name: email-generator
+        image: quay.io/redhattraining/do100-email-generator:v1.0
+        ports:
+        - containerPort: 8081
