@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: name-generator
-        image: quay.io/redhattraining/do100-name-generator:1.0
+        image: quay.io/redhattraining/do100-name-generator:v1.0
         ports:
         - containerPort: 8080
