@@ -1,0 +1,29 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: read-pods
+  namespace: {namespace}
+subjects:
+- kind: User
+  name: {username}
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: {namespace}
+  name: pod-reader
+rules:
+- apiGroups: [""]    # The default api-group, where basic resources are defined
+  resources: ["*"]   # All resources in the api-group. See `kubectl api-resources --api-group="" -o name`
+  verbs: ["*"]       # All read and write verbs. Equals to ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["apps"]
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses"]
+  verbs: ["*"]
