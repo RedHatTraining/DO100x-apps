@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: do100-probes
+  labels:
+    app: do100-probes
+spec:
+  rules:
+    - host: hello.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: do100-probes
+                port:
+                  number: 8080
