@@ -1,13 +1,9 @@
-FROM quay.io/centos7/nodejs-12-centos7 AS base
+FROM registry.access.redhat.com/ubi8/nodejs-14:1
 
 COPY . /opt/app-root/src/
 
 RUN cd /opt/app-root/src && \
     npm install
-
-FROM base
-
-RUN cd /opt/app-root/src
 
 EXPOSE 8080
 
