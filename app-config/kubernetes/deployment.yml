@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-config
+  labels:
+    app: app-config
+spec:
+  selector:
+    matchLabels:
+      app: app-config
+  template:
+    metadata:
+      labels:
+        app: app-config
+    spec:
+      containers:
+      - name: app-config
+        image: quay.io/redhattraining/do100-app-config:v1.0
+        ports:
+        - containerPort: 8080

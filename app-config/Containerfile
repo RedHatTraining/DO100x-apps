@@ -1,0 +1,13 @@
+FROM registry.access.redhat.com/ubi8/nodejs-14:1
+
+ENV PORT=8080
+
+# Cache dependencies
+COPY app/package.json app/package-lock.json ./
+RUN npm ci --production
+
+COPY app/ .
+
+EXPOSE ${PORT}
+
+CMD npm start
