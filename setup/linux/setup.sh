@@ -4,7 +4,7 @@ USERNAME=$(whoami)
 
 MINIKUBE_DIR=$HOME"/.minikube"
 CERT_DIRECTORY="$MINIKUBE_DIR/redhat-certs"
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; cd .. ; pwd -P )"
 MINIKUBE_CONTEXT=${USERNAME}-context
 NAMESPACE_DEV=${USERNAME}-dev
 NAMESPACE_STAGE=${USERNAME}-stage
