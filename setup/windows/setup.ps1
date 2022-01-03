@@ -139,6 +139,7 @@ function apply_role_resources(${1}) {
     Write-Host "Creating role resources for user '${USERNAME}' in namespace '${1}' ..."
     $NEWYML | Set-Content -Path $SCRIPTPATH\files\role-binding.yml
     kubectl apply -f $SCRIPTPATH\files\role-binding.yml --validate=false
+    $OLDYML | Set-Content -Path $SCRIPTPATH\files\role-binding.yml
     }
 }
 
