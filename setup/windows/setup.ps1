@@ -1,4 +1,4 @@
-$USERNAME=(Write-Output $env:username)
+$USERNAME=(Write-Output $env:username) -replace "\.", "-"
 
 $MINIKUBE_DIR=($HOME) + "\.minikube"
 $CERT_DIRECTORY="$MINIKUBE_DIR\redhat-certs"
